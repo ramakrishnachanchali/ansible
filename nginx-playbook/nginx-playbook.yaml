@@ -10,21 +10,20 @@
     when: ansible_os_family == 'ReadHat'
   - name: update package for ubuntu
     apt:
-      name: '*'
-      state: latest
+      update_cache: yes
     when: ansible_os_family == 'ubuntu'
   - name: install nginx in ReadHat
     yum: 
       name: nginx
       state: present
     when: ansible_os_family == 'ReadHat'
-- name: install nginx in ubuntu
-  apt:
-    name: nginx
-    state: present
-  when: ansible_os_family == 'ubuntu'
-- name: start nginx service
-  service:
-    name: nginx
-    state: started
+  - name: install nginx in ubuntu
+    apt:
+      name: nginx
+      state: present
+    when: ansible_os_family == 'ubuntu'
+  - name: start nginx service
+    service:
+      name: nginx
+      state: started
   
