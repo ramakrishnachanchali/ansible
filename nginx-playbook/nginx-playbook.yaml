@@ -11,7 +11,7 @@
   - name: update package for ubuntu
     apt:
       update_cache: yes
-    when: ansible_os_family == 'ubuntu'
+    when: ansible_os_family == 'Debian'
   - name: install nginx in ReadHat
     yum: 
       name: nginx
@@ -21,7 +21,7 @@
     apt:
       name: nginx
       state: present
-    when: ansible_os_family == 'ubuntu'
+    when: ansible_os_family == 'Debian'
   - name: start nginx service
     service:
       name: nginx
