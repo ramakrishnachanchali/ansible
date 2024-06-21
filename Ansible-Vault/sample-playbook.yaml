@@ -1,0 +1,4 @@
+---
+- name: Show vault variable value
+  debug:
+    msg: "{{ devfault_value_from_vault }}"
